@@ -1,0 +1,25 @@
+# Dependências
+node_modules/
+
+# Arquivos compilados do TypeScript
+dist/
+build/
+*.js.map
+*.d.ts.map
+
+# Logs
+*.log
+npm-debug.log*
+
+# Variáveis de ambiente (caso use)
+.env
+.env.local
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json

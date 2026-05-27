@@ -9,6 +9,7 @@ export interface Operation {
 export interface Estado {
     quantidadeAcoes: number;
     mediaPonderada: number;
+    prejuizoAcumulado: number;
 }
 
 export interface TaxResult {

@@ -1,8 +1,6 @@
 import readline from "node:readline";
-import type { Operation, Estado } from "./types.js";
-import { calcularImposto } from "./imposto.js";
-import { atualizarEstado } from "./estado.js";
-
+import type { Operation, TaxResult } from "./types.js";
+import { processarOperacoes } from "./processador.js";
 
 
 const r1 = readline.createInterface({
@@ -17,18 +15,9 @@ r1.on("line", (linha: string) => {
 
     const operacoes: Operation[] = JSON.parse(linha);
 
-    let estado: Estado = {quantidadeAcoes: 0, mediaPonderada: 0, prejuizoAcumulado: 0};
+    const impostos = processarOperacoes(operacoes);
 
-    let impostos: number[] = [];
-
-    for (const operacao of operacoes) {
-        
-        const imposto = calcularImposto(estado, operacao);
-        impostos.push(imposto);
-        estado = atualizarEstado(estado, operacao);
-        
-    }
-    const resultado = impostos.map((imposto) => ({tax: imposto}));
+    const resultado = impostos.map((imposto): TaxResult => ({tax: imposto}));
     console.log(JSON.stringify(resultado));
 });
 

@@ -6,6 +6,7 @@
   "scripts": {
     "start": "tsx src/index.ts",
     "dev": "clear && tsx src/index.ts < input.txt",
+    "test": "tsx --test tests/**/*.test.ts",
     "build": "tsc",
     "start:prod": "node dist/index.js"
   },

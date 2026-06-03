@@ -1,0 +1,23 @@
+* Tipos vs validação em runtime: o que pertence ao typescript não é verificado quando se executa o programa, pois a execução dele é em javaScript, então a comparação de tipos nao existe;
+
+* uso do != e !== comparado com ===;
+
+* uso do OR e do AND na situação da comparação retornar um valor invalido, onde ( op.operation !== "sell" || op.operation !== "buy" não faz sentido pelo fato de que, se um deles for buy, a flag do !== sell iria bloquear a ação mesmo ela sendo correta, portanto, a forma correta seria usar o && onde seria feita a verificação de uma situação onde o valor de op.operation é diferente de ambos, e não de apenas um deles.);
+
+* comparação de arrays vs uso do include para verificar cada campo;
+
+* uso do Object.keys() para extrair apenas os campos dentro do objeto, não extrai os valores
+
+* uso do .length em objetos, sendo a forma correta sendo usar o Object.keys() para transformar os campos em Array de strings;
+
+* uso do .includes() para verificar se algum dos elementos dentro do array é o target da sua verificação;
+
+* uso do return dentro do for of vs for each, onde o return dentro de um for of cancela a execução da função por completo, fazendo com que o retorno seja unico e não por operação dentro do array de objetos, e a impossibilidade do uso do return dentro de um ForEach pelo fato de ele apenas servir para interromper a ação daquela execução do proprio, e não da função por completo. 
+
+* clausulas de guarda e o operador "!", onde ele é usado para inverter o valor de um bool, no caso de uma função retornar true, ele a tornaria false, fazendo o IF não ser executado, substituindo o uso do !== true. 
+
+* uso de uma função de suporte para fazer a verificação dos campos em vez de usar tudo em uma unica, focando em melhorar a legibilidade do codigo e divisão de funçoes importantes para a proposta do exercicio. 
+
+* uso do if(!verificaChavesValidas(op)) para verificação das chaves e escrevendo de uma forma mais enchuta, ao invés de colocar a comparação do resultado, já que o IF já espera que o valor seja true para poder ser executado o que está dentro dele, nesse caso, se verificaChavesValidas(op) retornar o valor false, ou seja, alguma chave está invalida, ele permite o IF executar, assim fazendo o return false travar a função por completo e retornar o ['invalido'];
+
+* O principal de todos: a diferenciação do Typescript quando ele é rodado pelo coderunner para testes comparado com o uso do comando "npm dev run", onde a execução do comando irá executar o meu script como um javaScript, e não um typescript, logo, toda a logica de verificação existente no typescript deixa de existir, e se torna necessario serem feitas manualmente para executar o programa corretamente.
